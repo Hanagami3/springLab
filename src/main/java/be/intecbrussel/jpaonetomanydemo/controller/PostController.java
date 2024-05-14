@@ -1,8 +1,8 @@
 package be.intecbrussel.jpaonetomanydemo.controller;
 
-import com.example.jpa.exception.ResourceNotFoundException;
-import com.example.jpa.model.Post;
-import com.example.jpa.repository.PostRepository;
+import be.intecbrussel.jpaonetomanydemo.exception.ResourceNotFoundException;
+import be.intecbrussel.jpaonetomanydemo.model.Post;
+import be.intecbrussel.jpaonetomanydemo.repository.PostRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

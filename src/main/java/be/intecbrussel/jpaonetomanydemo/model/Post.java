@@ -2,9 +2,15 @@ package be.intecbrussel.jpaonetomanydemo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "posts")
 public class Post extends AuditModel {
+
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,33 +24,38 @@ public class Post extends AuditModel {
     @NotNull
     @Lob
     private String content;
+*/
 
-    public Post() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
+    @Size(max = 100)
+    @Column(unique = true)
+    private String title;
+    @NotNull
+    @Size(max = 250)
+    private String description;
+    @NotNull
+    @Lob
+    private String content;
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "post")
+    private Set<Comment> comments = new HashSet<>();
+
+    public Set<Comment> getComments() {
+        return comments;
     }
 
-    public Post(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
-    public Post(Long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
+    public Post() {}
 
-    public Post(Long id, String title, String description, String content) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.content = content;
-    }
+    public Post(String postTitle, String postDescription, String postContent) {}
 
-    public Post(String title, String description, String content) {
-        this.title = title;
-        this.description = description;
-        this.content = content;
-    }
 
     public Long getId() {
         return id;
