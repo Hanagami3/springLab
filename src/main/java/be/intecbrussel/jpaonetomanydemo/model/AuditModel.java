@@ -1,4 +1,4 @@
-package com.example.jpa.model;
+package be.intecbrussel.jpaonetomanydemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

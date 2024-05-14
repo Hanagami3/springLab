@@ -1,2 +1,2 @@
-package com.example.jpa.controller;public class CommentController {
+package be.intecbrussel.jpaonetomanydemo.controller;public class CommentController {
 }

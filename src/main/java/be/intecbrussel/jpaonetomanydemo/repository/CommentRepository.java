@@ -1,2 +1,2 @@
-package com.example.jpa.repository;public class CommentRepository {
+package be.intecbrussel.jpaonetomanydemo.repository;public class CommentRepository {
 }

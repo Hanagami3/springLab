@@ -1,2 +1,2 @@
-package com.example.jpa.exception;public class ResourceNotFoundException {
+package be.intecbrussel.jpaonetomanydemo.exception;public class ResourceNotFoundException {
 }
