@@ -1,8 +1,7 @@
 package be.intecbrussel.jpaonetomanydemo.model;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "posts")
 public class Post extends AuditModel {
@@ -13,11 +12,39 @@ public class Post extends AuditModel {
     @Size(max = 100)
     @Column(unique = true)
     private String title;
-    @NotNull@Size(max = 250)
+    @NotNull
+    @Size(max = 250)
     private String description;
     @NotNull
     @Lob
     private String content;
+
+    public Post() {
+    }
+
+    public Post(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+    public Post(Long id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Post(Long id, String title, String description, String content) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.content = content;
+    }
+
+    public Post(String title, String description, String content) {
+        this.title = title;
+        this.description = description;
+        this.content = content;
+    }
 
     public Long getId() {
         return id;

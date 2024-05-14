@@ -19,6 +19,24 @@ public class Comment extends AuditModel {
     @JsonIgnore
     private Post post;
 
+    public Comment() {
+    }
+
+    public Comment(String text, Post post) {
+        this.text = text;
+        this.post = post;
+    }
+
+    public Comment(Post post) {
+        this.post = post;
+    }
+
+    public Comment(Long id, String text, Post post) {
+        this.id = id;
+        this.text = text;
+        this.post = post;
+    }
+
     public Long getId() {
         return id;
     }
